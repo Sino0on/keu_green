@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+Заявки
+{% endblock %}
+{% block content %}
+
+
+<section>
+			<div class="details container">
+				<div class="details-action">
+					<div style="padding: 80px;" class="details-action-box">
+						<h2>Заявки на курсы</h2>
+					</div>
+
+				</div>
+				<div class="details-content">
+					<div class="details-content-title">
+
+                    </div>
+
+					<div class="details-fieldset">
+						<div class="details-fieldset-title">Заявки</div>
+                        {% if applications_list %}
+						{% for i in applications_list %}
+						<div class="details-fieldset-section">
+							<h3>{{ i.student_id }} -- {{ i.course_id }}</h3>
+                            <h3>{{ i.course_id.title }}</h3>
+                                <br>
+
+
+                                <a class="details-action-btn" style="font-size: 18px; padding: 10px;" href="{% url 'application_accept' i.student_id.pk i.course.pk i.pk %}">принять</a>
+                                </div>
+
+                            <br>
+                            <br>
+
+						</div>
+						{% endfor %}
+
+                        {% else %}
+                            <div class="details-fieldset-section">
+                                <h3>Заявок нет</h3>
+
+
+                            </div>
+                        {% endif %}
+					</div>
+				</div>
+			</div>
+		</section>
+
+{% endblock %}
