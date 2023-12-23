@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'server',
     'ckeditor',
     'rest_framework',
-    'media'
 ]
 
 MIDDLEWARE = [
